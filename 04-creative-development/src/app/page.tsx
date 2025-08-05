@@ -5,7 +5,7 @@ import "./page.css";
 
 function addBackgroundImage(context: CanvasRenderingContext2D) {
   const base_image = new Image();
-  base_image.src = "./img/placeholder.png";
+  base_image.src = "./img/background.jpeg";
   base_image.onload = function () {
     context.drawImage(base_image, 0, 0);
   };
@@ -28,6 +28,8 @@ export default function Home() {
     const context = canvas.getContext("2d");
 
     if (!context) return;
+
+    addBackgroundImage(context);
 
     const handleClick = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
