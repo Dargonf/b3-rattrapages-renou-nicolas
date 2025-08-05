@@ -11,12 +11,12 @@ function addBackgroundImage(context: CanvasRenderingContext2D) {
   };
 }
 
-const drawClick = (x: number, y: number, context: CanvasRenderingContext2D) => {
+function drawClick(x: number, y: number, context: CanvasRenderingContext2D) {
   context.beginPath();
   context.arc(x, y, 3, 0, 2 * Math.PI);
   context.fillStyle = "blue";
   context.fill();
-};
+}
 
 export default function Home() {
   useEffect(() => {
