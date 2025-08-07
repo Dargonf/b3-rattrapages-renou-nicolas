@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+First install the dependancies
 
-## Getting Started
+```bash
+npm install
+```
 
-First, run the development server:
+Either run the project in dev mode or prod mode
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+the demonstration video can be found here [https://youtu.be/Xn6SrvvM8No](https://youtu.be/Xn6SrvvM8No)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Listed below all the research amde for the project, research excluded from this are usage of code from private project of me
 
-## Learn More
+https://www.picard.fr/
+https://www.allocine.fr/film/fichefilm-307991/photos/detail/?cmediafile=22079185
+https://www.google.com/search?q=inside+out+room&udm=2&sxsrf=AE3TifOCicUXsQK3xAHPJCH7WWAyardF8A%3A1754405621941
+https://virtualbackgrounds.site/background/inside-out-rileys-headquarters/
+https://www.allocine.fr/film/fichefilm-307991/photos/poster/
+https://nextjs.org/docs/app/api-reference/components/image
+https://nextjs.org/docs/app/guides/tailwind-css
+https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration
+https://search.brave.com/search?q=javascript+make+canvas+transparent
+https://stackoverflow.com/questions/4815166/how-do-i-make-a-transparent-canvas-in-html5
+https://tailwindcss.com/docs/z-index
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+some research may be missing, i had to filter what research i put here to not put every youtube music that was in my history or duplicate link
