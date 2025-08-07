@@ -4,6 +4,29 @@ import "destyle.css";
 import "./page.css";
 import FlipCard from "@/components/FlipCard";
 
+const platsAssocies: Record<string, { img: string; nom: string; desc: string }> = {
+  Anxiété: {
+    img: "/img/gratin.webp",
+    nom: "Gratin de macaronis",
+    desc: "Un classique réconfortant pour apaiser les tensions.",
+  },
+  Envie: {
+    img: "/img/macaron.avif",
+    nom: "Macarons multicolores",
+    desc: "Gourmands et irrésistibles, comme l'envie.",
+  },
+  Embarras: {
+    img: "/img/veloute.avif",
+    nom: "Velouté potiron-châtaigne",
+    desc: "Un velouté tout en douceur pour se faire tout petit.",
+  },
+  Ennui: {
+    img: "/img/pizza.webp",
+    nom: "Pizza 4 fromages",
+    desc: "On la connaît par cœur… et pourtant, on y revient toujours.",
+  },
+};
+
 function addBackgroundImage(context: CanvasRenderingContext2D, img: string) {
   const base_image = new Image();
   base_image.src = img;
@@ -47,6 +70,37 @@ export default function Home() {
 
     canvas.addEventListener("click", handleClick);
 
+    const cards = document.querySelectorAll(".flip-card");
+
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", (e) => {
+        const emotion = (card as HTMLElement).dataset.name;
+        const plat = platsAssocies[emotion ?? ""];
+
+        if (plat) {
+          const bubble = document.getElementById("plat-bubble") as HTMLElement;
+          const img = document.getElementById("plat-img") as HTMLImageElement;
+          const name = document.getElementById("plat-name") as HTMLElement;
+          const desc = document.getElementById("plat-desc") as HTMLElement;
+
+          const rect = (card as HTMLElement).getBoundingClientRect();
+          bubble.style.left = `${rect.right + 10}px`;
+          bubble.style.top = `${rect.top}px`;
+          bubble.classList.remove("hidden");
+
+          img.src = plat.img;
+          img.alt = plat.nom;
+          name.textContent = plat.nom;
+          desc.textContent = plat.desc;
+        }
+      });
+
+      card.addEventListener("mouseleave", () => {
+        const bubble = document.getElementById("plat-bubble") as HTMLElement;
+        bubble.classList.add("hidden");
+      });
+    });
+
     return () => {
       canvas.removeEventListener("click", handleClick);
     };
@@ -56,23 +110,29 @@ export default function Home() {
     <div className="app">
       <canvas id="canvas" className="absolute z-0"></canvas>
 
-      <div className="absolute z-1 top-80 left-100 hover:z-20">
+      <div className="absolute z-1 top-80 left-100 hover:z-20 flip-card" data-name="Embarras">
         <FlipCard tranparentImage="/img/embarras.png" fullImage="/img/embarras.jpg" name="Embarras" />
       </div>
 
-      <div className="absolute z-1 top-100 left-310">
+      <div className="absolute z-1 top-100 left-310 flip-card" data-name="Ennui">
         <FlipCard tranparentImage="/img/ennui.png" fullImage="/img/ennui.jpg" name="Ennui" />
       </div>
 
-      <div className="absolute z-1 top-120 left-215 hover:z-20">
+      <div className="absolute z-1 top-120 left-215 hover:z-20 flip-card" data-name="Envie">
         <FlipCard tranparentImage="/img/envie.png" fullImage="/img/envie.jpg" name="Envie" />
       </div>
 
-      <div className="absolute z-20 top-110 left-10">
+      <div className="absolute z-20 top-110 left-10 flip-card" data-name="Anxiété">
         <FlipCard tranparentImage="/img/anxiete.png" fullImage="/img/anxiete.jpg" name="Anxiété" />
       </div>
 
       <canvas id="canvas-left" className="absolute z-10 pointer-events-none"></canvas>
+
+      <div id="plat-bubble" className="hidden fixed z-50 bg-white/90 rounded-full p-4 w-96 text-center shadow-lg transition-all duration-300 ease-in-out">
+        <img id="plat-img" src="null" alt="" className="w-24 h-24 mx-auto rounded-full object-cover mb-2" />
+        <h4 id="plat-name" className="font-bold text-md"></h4>
+        <p id="plat-desc" className="text-sm text-gray-700"></p>
+      </div>
     </div>
   );
 }
