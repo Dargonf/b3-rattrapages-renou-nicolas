@@ -108,6 +108,7 @@ export default function Home() {
 
   return (
     <div className="app">
+      <div className="absolute z-50 top-0 left-0 right-0 text-center text-blue-700 text-5xl bg-white">Découvré les nouvelles emotion de vice versa avec les plats PICARD</div>
       <canvas id="canvas" className="absolute z-0"></canvas>
 
       <div className="absolute z-1 top-80 left-100 hover:z-20 flip-card" data-name="Embarras">
