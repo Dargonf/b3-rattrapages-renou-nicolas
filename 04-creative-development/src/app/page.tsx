@@ -35,14 +35,6 @@ function addBackgroundImage(context: CanvasRenderingContext2D, img: string) {
   };
 }
 
-function drawClick(x: number, y: number, context: CanvasRenderingContext2D) {
-  context.beginPath();
-  context.arc(x, y, 3, 0, 2 * Math.PI);
-  context.fillStyle = "blue";
-  context.fill();
-  console.log(x, y);
-}
-
 export default function Home() {
   useEffect(() => {
     const canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -60,15 +52,6 @@ export default function Home() {
 
     addBackgroundImage(context, "./img/background.jpeg");
     addBackgroundImage(contextLeft, "./img/background-left.png");
-
-    const handleClick = (event: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      drawClick(x, y, context);
-    };
-
-    canvas.addEventListener("click", handleClick);
 
     const cards = document.querySelectorAll(".flip-card");
 
@@ -100,10 +83,6 @@ export default function Home() {
         bubble.classList.add("hidden");
       });
     });
-
-    return () => {
-      canvas.removeEventListener("click", handleClick);
-    };
   }, []);
 
   return (
