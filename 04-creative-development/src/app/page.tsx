@@ -63,6 +63,15 @@ export default function Home() {
       <div className="absolute z-1 top-100 left-310">
         <FlipCard tranparentImage="/img/ennui.png" fullImage="/img/ennui.jpg" name="Ennui" />
       </div>
+
+      <div className="absolute z-1 top-120 left-215 hover:z-20">
+        <FlipCard tranparentImage="/img/envie.png" fullImage="/img/envie.jpg" name="Envie" />
+      </div>
+
+      <div className="absolute z-20 top-110 left-10">
+        <FlipCard tranparentImage="/img/anxiete.png" fullImage="/img/anxiete.jpg" name="Anxiété" />
+      </div>
+
       <canvas id="canvas-left" className="absolute z-10 pointer-events-none"></canvas>
     </div>
   );
